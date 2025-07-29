@@ -15,11 +15,29 @@ dependencies:
   intl: ^0.20.2
   flutter_svg: ^2.2.0
   animations: ^2.0.11
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+assets:
+  - assets/
+  - assets/images/
+  - assets/icons/
+  - assets/fonts/
+
 flutter:
   uses-material-design: true
+
+flutter_native_splash:
+  color: "#143642"
+  android: true
+  ios: true
+  web: true
+  android_12:
+    color: "#143642"
+    icon_background_color: "#143642"
+    color_dark: "#143642"
+    icon_background_color_dark: "#143642"
