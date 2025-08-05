@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/features/boarding/presentation/language_presentation.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,26 +13,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Grocery Store',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Grocery Store'),
-          backgroundColor: Colors.redAccent,
-          foregroundColor: Colors.white,
-          titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          centerTitle: true,
-          elevation: 4.0,
-        ),
-        body: Center(
-          child: Text(
-            'Ahh shit, Here we go again!',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.red,
-            ),
-          ),
-        ),
-      ),
+      home: Scaffold(body: Center(child: LanguagePresentation())),
     );
   }
 }

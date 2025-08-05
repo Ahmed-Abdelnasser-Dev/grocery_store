@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   provider: ^6.1.5
   get_it: ^8.0.3
   dio: ^5.8.0+1
@@ -22,21 +23,29 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
-assets:
-  - assets/
-  - assets/images/
-  - assets/icons/
-  - assets/fonts/
-
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+    - assets/logos/
+    - assets/images/boarding/
 
 flutter_native_splash:
-  color: "#143642"
   android: true
   ios: true
   web: true
+
+  color: "#143642"
+  image: assets/logos/grocery_store_logo_engilsh.png
+  icon_background_color: "#143642"
+  color_dark: "#143642"
+  icon_background_color_dark: "#143642"
+
   android_12:
+    image: assets/logos/grocery_store_logo_engilsh.png
     color: "#143642"
     icon_background_color: "#143642"
     color_dark: "#143642"
