@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../shared/widgets/custom_button_with_icon.dart';
+import 'package:provider/provider.dart';
+import '../../../../shared/widgets/custom_button_with_icon.dart';
+import '../../../../shared/widgets/custom_button.dart';
+import '../providers/boarding_provider.dart';
 
 class LanguageBodyWidget extends StatefulWidget {
   const LanguageBodyWidget({super.key});
@@ -9,10 +12,12 @@ class LanguageBodyWidget extends StatefulWidget {
 }
 
 class _LanguageBodyWidgetState extends State<LanguageBodyWidget> {
-  bool isActiveButtonEngish = false;
+  bool isActiveButtonEngish = true;
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<BoardingProvider>(context, listen: false);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,8 +39,7 @@ class _LanguageBodyWidgetState extends State<LanguageBodyWidget> {
           ),
         ),
         SizedBox(height: 24),
-
-        //* Language selection button
+        // Language selection button
         Row(
           children: [
             Expanded(
@@ -48,7 +52,7 @@ class _LanguageBodyWidgetState extends State<LanguageBodyWidget> {
                     isActiveButtonEngish = true;
                   });
                 },
-                selected: isActiveButtonEngish ? true : false,
+                selected: isActiveButtonEngish,
               ),
             ),
             SizedBox(width: 16),
@@ -62,12 +66,19 @@ class _LanguageBodyWidgetState extends State<LanguageBodyWidget> {
                     isActiveButtonEngish = false;
                   });
                 },
-                selected: isActiveButtonEngish ? false : true,
+                selected: !isActiveButtonEngish,
               ),
             ),
           ],
         ),
         SizedBox(height: 24),
+        // Next Button
+        CustomButton(
+          buttonText: 'Next',
+          onTap: () {
+            provider.nextStep();
+          },
+        ),
       ],
     );
   }

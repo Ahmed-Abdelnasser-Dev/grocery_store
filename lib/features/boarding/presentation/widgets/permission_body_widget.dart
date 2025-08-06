@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../../shared/widgets/custom_button.dart';
+import '../providers/boarding_provider.dart';
 
 class PermissionBodyWidget extends StatefulWidget {
   const PermissionBodyWidget({super.key});
@@ -8,10 +11,10 @@ class PermissionBodyWidget extends StatefulWidget {
 }
 
 class _PermissionBodyWidgetState extends State<PermissionBodyWidget> {
-  bool isActiveButtonEngish = false;
-
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<BoardingProvider>(context, listen: false);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -25,7 +28,7 @@ class _PermissionBodyWidgetState extends State<PermissionBodyWidget> {
         ),
         SizedBox(height: 16),
         Text(
-          'Please Choose a language to proceed to the application, You can change the language later from general settings.',
+          'Please allow location access to find stores near you. You can change this later in settings.',
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w500,
@@ -33,6 +36,12 @@ class _PermissionBodyWidgetState extends State<PermissionBodyWidget> {
           ),
         ),
         SizedBox(height: 24),
+        CustomButton(
+          buttonText: 'Grant Permission',
+          onTap: () {
+            provider.nextStep();
+          },
+        ),
       ],
     );
   }
